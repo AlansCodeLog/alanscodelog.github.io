@@ -1,6 +1,9 @@
 {
-  "extends": "astro/tsconfigs/strictest",
+  "extends": "@alanscodelog/tsconfigs",
   "compilerOptions": {
-    "strictNullChecks": true
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "nodenext",
+    "jsx": "preserve"
   }
 }
