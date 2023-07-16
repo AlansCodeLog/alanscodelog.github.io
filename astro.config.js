@@ -1,6 +1,7 @@
+import "dotenv/config"
+
 import mdx from "@astrojs/mdx"
 // https://astro.build/config
-import node from "@astrojs/node"
 import sitemap from "@astrojs/sitemap"
 // https://astro.build/config
 import svelte from "@astrojs/svelte"
@@ -12,35 +13,37 @@ import icon from "astro-icon"
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
-  site: "https://alanscodelog.com",
-  integrations: [
-	mdx(),
-	sitemap(),
-	vue({ appEntrypoint: "/src/components/App.ts" }),
-	tailwind({ configFile: "tailwind.config.js" }),
-	svelte(),
-	icon({
-      include: {
-        devicon: ["*"],
-      },
-    }),
-],
-  image: {
-    service: sharpImageService(),
-  },
-  markdown: {
-    shikiConfig: {
-      // theme: 'one-dark-pro',
-      theme: "dark-plus",
-      wrap: true,
-    },
-    smartypants: false,
-  },
-  // adapter: node({
-  // 	mode: "standalone"
-  // }),
-  experimental: {
-    assets: true,
-  },
+	output: "static",
+	site: process.env.SITE_URL,
+	integrations: [
+		mdx(),
+		sitemap({
+			filter: page => !page.includes(".private"),
+		}),
+		vue({ appEntrypoint: "/src/components/App.ts" }),
+		tailwind({ configFile: "tailwind.config.js" }),
+		svelte(),
+		icon({
+			include: {
+				devicon: ["*"],
+			},
+		}),
+	],
+	image: {
+		service: sharpImageService(),
+	},
+	markdown: {
+		shikiConfig: {
+			// theme: 'one-dark-pro',
+			theme: "dark-plus",
+			wrap: true,
+		},
+		smartypants: false,
+	},
+	// adapter: node({
+	// 	mode: "standalone"
+	// }),
+	experimental: {
+		assets: true,
+	},
 })

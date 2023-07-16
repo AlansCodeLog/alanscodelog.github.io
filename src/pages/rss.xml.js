@@ -10,9 +10,6 @@ export async function get(context) {
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: context.site,
-		// items: [{
-
-		// }]
 		items: posts.map(post => ({
 			title: post.data.title,
 			link: `/posts/${post.slug}/`,
@@ -21,4 +18,3 @@ export async function get(context) {
 		})),
 	})
 }
-2

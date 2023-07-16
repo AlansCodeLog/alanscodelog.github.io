@@ -3,11 +3,11 @@ export const prerender = true
 import { dedupe } from "@alanscodelog/utils"
 import { getCollection } from "astro:content"
 
-import TagsLayout from "@/layouts/TagsLayout.astro"
 import { getListOfTagLike } from "@/composables/getListOfTagLike.js"
+import TagsLayout from "@/layouts/TagsLayout.astro"
 
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({}) {
 	const langs = await getListOfTagLike("langs")
 
 	const res = langs.map((lang) => ({

@@ -1,8 +1,8 @@
 ---
 export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 
-const { href, title, class: className, ...props } = Astro.props;
-const { pathname } = Astro.url;
+const { href, title, class: className, ...props } = Astro.props
+const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
@@ -13,5 +13,4 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 	{...props}
 >
 	<slot />
-</a>
 </a>

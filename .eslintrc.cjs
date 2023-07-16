@@ -1,11 +1,12 @@
 module.exports = {
 	extends: [
 		"plugin:astro/recommended",
-		"@alanscodelog/eslint-config/js" //todo typescript not working
+		"@alanscodelog/eslint-config/typescript" //todo typescript not working
 	],
 	rules: {
 		"@typescript-eslint/lines-between-class-members":"off"
 	},
+
 	overrides: [
 		{
 			files: ["*.astro"],

@@ -1,4 +1,6 @@
-import type { App } from 'vue';
+import { type App } from "vue"
 
-export default (app: App) => {
+
+export default (_app: App): void => {
+	// needed by astro to be able to use vue
 }
