@@ -1,0 +1,148 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import { IMAGE_SIZES } from "../consts.js";
+
+export interface Props {
+	post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+---
+
+<!-- <li> --><!-- <time datetime={post.data.pubDate.toISOString()}>
+		{post.data.pubDate.toLocaleDateString('en-us', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})}
+	</time>
+	<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+ --><!-- </li> -->
+<article
+	class={`gradient-wrapper
+	w-full
+	p-1
+	relative
+	after:absolute
+	after:top-0 after:left-0 after:right-0 after:bottom-0
+	after:content
+	after:bg-gradient-to-b
+	after:from-blue-800
+	after:to-indigo-950
+	after:rounded-md
+	after:z-[-1]
+	after:opacity-0
+	hover:after:opacity-100
+	motion-safe:after:transition-opacity
+	group
+	origin-top
+	motion-safe:hover:scale-[1.02]
+	motion-safe:transition-all
+`}
+>
+	<div
+		class={`wrapper
+		bg-slate-900
+		shadow-sm
+		shadow-black
+		hover:shadow-none
+		w-full
+		h-full
+		flex
+		flex-wrap
+		gap-3
+		p-3
+		sm:flex-nowrap
+		rounded
+	`}
+	>
+		<div
+			class={`title-date-description
+			flex-1
+			grow-[2]
+			flex
+			flex-col
+			order-2
+			sm:order-1
+		`}
+		>
+			<h1
+				class={`
+					font-title
+					w-full
+					text-2xl
+					font-extrabold
+					text-slate-200
+					text-shadow-[-2px_3px_0_var(--tw-shadow-color)]
+					shadow-fuchsia-800/50
+				`}
+			>
+				<a class="block w-full" href={`/post/${post.slug}`}
+					>{post.data.title}</a
+				>
+			</h1>
+			<time
+				class="text-slate-400"
+				datetime={post.data.pubDate.toISOString()}
+			>
+				<a class="block w-full" href={`/post/${post.slug}`}>
+					{
+						post.data.pubDate.toLocaleDateString("en-us", {
+							year: "numeric",
+							month: "short",
+							day: "numeric",
+						})
+					}
+				</a>
+			</time>
+			{
+				post.data.description && (
+					<div
+						class={`
+						content
+						mt-5
+						w-full
+						text-slate-200
+					`}
+					>
+						<Fragment set:html={post.data.description} />
+					</div>
+				)
+			}
+		</div>
+		{
+			(post.data.cover || post.data.svgCover) && (
+				<a
+					href={`/post/${post.slug}`}
+					class={` cover-link
+					block
+					flex-initial
+					sm:flex-1
+					w-full
+					sm:w-auto
+					order-1
+					sm:order-2
+				`}
+				>
+					{post.data.svgCover && (
+						<object
+							class={`object-cover h-full`}
+							data={post.data.svgCover}
+							width="300"
+							height="300"
+						/>
+					)}
+					{post.data.cover && (
+						<Image
+							class={` object-cover h-full `}
+							src={post.data.cover}
+							alt={post.data.coverAlt}
+						/>
+					)}
+				</a>
+			)
+		}
+	</div>
+</article>

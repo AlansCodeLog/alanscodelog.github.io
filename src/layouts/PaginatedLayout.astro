@@ -1,0 +1,49 @@
+---
+export const prerender = true
+import {MakeRequired} from "@alanscodelog/utils"
+import { CollectionEntry, getCollection } from "astro:content"
+
+import MainLayout from "./MainLayout.astro"
+
+import PartialPost from "../components/PartialPost.astro"
+
+
+interface Props {
+	page:MakeRequired<Partial<Page<"blog">>, "data">
+}
+const {page} = Astro.props
+---
+<MainLayout>
+	<section class=`
+		flex-1
+		flex
+		flex-col
+		p-4
+		gap-4
+		max-w-4xl
+		w-full
+	`>
+		{
+			page.data.map((post) => (
+				<PartialPost post={post}/>
+			))
+		}
+	</section>
+	{ page.url && (
+		<nav class={`
+			max-w-md
+			w-full
+			p-6
+			flex
+			justify-between
+			font-mono
+		`}>
+			{(page.url.prev &&
+				<a  class="mr-auto hover:text-shadow-sm hover:shadow-white" href={page.url.prev}><span class="font-extrabold">&lt;</span> Prev Page</a>
+			)}
+			{(page.url.next &&
+				<a class="ml-auto hover:text-shadow-sm hover:shadow-white" href={page.url.next}>Next Page <span class="font-extrabold">&gt;</span></a>
+			)}
+		</nav>
+	) }
+</MainLayout>

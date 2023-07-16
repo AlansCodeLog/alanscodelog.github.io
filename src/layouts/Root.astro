@@ -1,0 +1,23 @@
+---
+export const prerender = true;
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!DOCTYPE html>
+<html
+	lang="en"
+	class={`
+		min-h-screen
+		min-h-[100dvh]
+		bg-gradient-to-t
+		bg-[#060a19]
+		text-slate-50
+	`}
+>
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta charset="utf-8" />
+	</head>
+	<slot />
+</html>

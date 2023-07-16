@@ -1,15 +1,91 @@
 ---
-import { HEADER_LINKS,SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
+import { Image } from "astro:assets";
+
+import HeaderLink from "./HeaderLink.astro";
+
+import spaceImage from "../assets/space2-cropped.jpg";
+import { HEADER_LINKS, SITE_TITLE } from "../consts";
 ---
 
-<header>
-	<nav class="flex w-full">
-		<a class="text-3xl font-bold self-start flex-1 p-2" href="/" alt="home">{SITE_TITLE}</HeaderLink>
-		<div class="self-end p-2">
+<header class="w-full">
+	<nav
+		class={`
+		relative
+		overflow-hidden
+		flex
+		flex-wrap
+		w-full
+		items-center
+		justify-between
+		from-transparent
+		from-30%
+		to-90%
+		to-[#060a19]
+	`}
+	>
+		<!-- todo add crop when supported -->
+		<Image
+			class={`
+			block
+			object-cover
+			h-full
+			w-full
+			absolute
+			z-[-1]
+			bottom-0
+			top-0
+			`}
+			src={spaceImage}
+			alt=""
+			width={2000}
+			height={50}
+		/>
+		<HeaderLink
+			class={`
+			whitespace-nowrap
+			font-display
+			font-extrabold
+			text-4xl
+			flex
+			p-2
+			px-5
+			z-1
+			origin-left
+			text-blue-100
+			text-shadow-sm
+			shadow-black
+			hover:shadow-indigo-800
+			motion-safe:hover:scale-110
+			motion-safe:hover:rotate-[1.5deg]
+			motion-safe:hover:-translate-y-1
+			motion-safe:transition-all
+			tracking-widest
+			`}
+			href="/"
+			title="home"
+		>
+			{SITE_TITLE}
+		</HeaderLink>
+		<div class="grow-[9000]"></div>
+		<div class="p-2 text-blue-50 flex flex-1 justify-center items-center">
 			{
 				HEADER_LINKS.map((link) => (
-					<HeaderLink class="px-3" href={`${link.href}`} alt={link.alt}>{link.title}</HeaderLink>
+					<HeaderLink
+						class={`
+						p-3
+						flex
+						text-shadow-sm
+						hover:text-shadow-md
+						shadow-black
+						hover:shadow-indigo-800
+						hover:scale-125
+						hover:translate-y-[-1px]
+						transition-all
+					`}
+						href={`${link.href}`}
+					>
+						{link.title}
+					</HeaderLink>
 				))
 			}
 		</div>

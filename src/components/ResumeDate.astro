@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"div"> {
+	start?: string;
+	end?: string;
+}
+const { start, end, ...attrs } = Astro.props;
+const niceDate = (rawDate: string) => {
+	const date = new Date(rawDate);
+	// return date as {month}-{year}
+	return date.toLocaleDateString("en-US", {
+		// month: "numeric",
+		year: "numeric",
+	});
+};
+---
+
+<div class:list={["text-sm", attrs.class]} {...attrs}>
+	{start && niceDate(start)}
+	{" - "}
+	{end ? niceDate(end) : "Current"}
+</div>

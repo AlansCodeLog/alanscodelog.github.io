@@ -1,0 +1,27 @@
+---
+export interface Props {
+	tags: string[];
+	classes?: string | string[];
+	urlpath?: string;
+}
+
+const { tags, classes, urlpath } = { urlpath: "/tags", ...Astro.props }
+console.log(urlpath);
+---
+
+<div class="flex gap-3 justify-center text-sm">
+	{
+		tags.map((tag) => (
+			<a
+				title={`${tag}`}
+				class:list={[
+					"tag text-neutral-50 bg-blue-800 hover:text-blue-400 rounded px-2",
+					classes,
+				]}
+				href={`${urlpath}/${tag}`}
+			>
+				{tag}
+			</a>
+		))
+	}
+</div>

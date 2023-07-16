@@ -1,0 +1,30 @@
+---
+export const prerender = true
+import MainLayout from "./MainLayout.astro"
+
+
+interface Props {
+	tags: string[];
+	urlpath: string;
+	name: string;
+}
+
+const { tags, urlpath, name } = Astro.props;
+---
+
+<MainLayout>
+	<div class="flex flex-col items-center justify-center flex-1">
+		<div class="text-4xl p-6">{name}</div>
+		<div class="flex flex-col items-center">
+			{
+				tags.map((tag) => (
+					<div class="text-2xl">
+						<a class="hover:text-blue-400" href={`${urlpath}${tag}`}>
+							{tag}
+						</a>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</MainLayout>

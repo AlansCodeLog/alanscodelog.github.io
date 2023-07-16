@@ -1,0 +1,11 @@
+---
+export const prerender = true
+import { getListOfTagLike } from "@/composables/getListOfTagLike.js"
+
+import TagsListLayout from "../../layouts/TagsListLayout.astro"
+
+
+const tags = await getListOfTagLike("tags");
+---
+
+<TagsListLayout urlpath="/tags/" tags={tags} name="Tags" />

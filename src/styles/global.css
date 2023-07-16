@@ -1,67 +1,85 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-body {
-	font-family: Verdana, sans-serif;
-	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
-	text-align: left;
-	background-color: #fff;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.content {
+		@apply text-justify leading-relaxed text-lg;
+	}
+	.content h1, h1.content {
+		@apply text-5xl;
+	}
+	.content h2, h2.content {
+		@apply text-4xl;
+	}
+	.content h3, h3.content {
+		@apply text-3xl;
+	}
+	.content h4, h4.content {
+		@apply text-2xl;
+	}
+	.content h5, h5.content {
+		@apply text-xl;
+	}
+	.content h6, h6.content {
+		@apply text-lg;
+	}
+	.content h1, h1.content,.content h2, h2.content,.content h3, h3.content,.content h4, h4.content,.content h5, h5.content,.content h6, h6.content {
+		@apply py-3;
+	}
+	.content p, p.content {
+		@apply py-3;
+	}
+
+
+	table {
+		@apply border-separate  table-fixed w-full border-spacing-0  ;
+	}
+	th, td {
+		@apply border-2 border-slate-700 p-2 ;
+	}
+	th {
+		@apply font-bold first:rounded-tl-md last:rounded-tr-md border-b-0 bg-slate-950;
+	}
+	tr:last-child td:first-child {
+		@apply first:rounded-bl-md;
+	}
+	tr:last-child td:last-child {
+		@apply last:rounded-br-md;
+	}
+	tr:not(:last-child) td {
+		@apply border-b-0;
+	}
+	td:not(:last-child), th:not(:last-child) {
+		@apply border-r-0;
+	}
+
+	.content pre, pre.content {
+		@apply p-6 rounded-md ;
+	}
+	.content code, code.content {
+		@apply  bg-slate-800/50 px-2;
+	}
+
+	.content pre>code {
+		all: unset;
+	}
+	.content blockquote,blockquote.content {
+		@apply ml-6 border-l-4 pl-6 border-slate-700;
+	}
+
+	.content a, a.content, link {
+		@apply underline text-blue-300 hover:text-blue-400;
+	}
+
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-	color: #222;
+
+.data-footnote-backref {
+	font-family:sans-serif !important;
 }
-a {
-	color: #3273dc;
+
+/* @media (prefers-color-scheme: dark) { */
+.dark-plus {
+	background-color: #111111 !important;
 }
-nav a {
-	margin-right: 10px;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-content {
-	line-height: 1.6;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-}
-code {
-	padding: 2px 5px;
-	background-color: #f2f2f2;
-}
-pre {
-	padding: 1rem;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
-}
+/* } */

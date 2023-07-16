@@ -1,0 +1,27 @@
+---
+export const prerender = true
+import { dedupe } from "@alanscodelog/utils"
+import { getCollection } from "astro:content"
+
+import TagsLayout from "@/layouts/TagsLayout.astro"
+import { getListOfTagLike } from "@/composables/getListOfTagLike.js"
+
+
+export async function getStaticPaths({ paginate }) {
+	const langs = await getListOfTagLike("langs")
+
+	const res = langs.map((lang) => ({
+		params: {
+			lang,
+		},
+	}))
+	return res
+}
+const { lang } = Astro.params
+const posts = await getCollection(
+	"blog",
+	(post) => post.data.published && post.data.langs?.includes(lang)
+);
+---
+
+<TagsLayout tag={lang} posts={posts} urlpath="/langs" name="Languages" />

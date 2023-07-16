@@ -1,0 +1,31 @@
+---
+export const prerender = true
+import { CollectionEntry, getCollection } from "astro:content"
+
+import MainLayout from "./MainLayout.astro"
+
+
+interface Props {
+	tag: string;
+	posts: CollectionEntry<"blog">[];
+	urlpath: string;
+	name: string;
+}
+
+const { posts, tag, urlpath, name } = Astro.props;
+---
+
+<MainLayout>
+	<div class="text-4xl p-3"><a class="hover:text-blue-400" href={urlpath}>{name}</a> - {tag}</div>
+	<div>
+		{
+			posts.map((post) => (
+				<div class="text-2xl">
+					<a class="hover:text-blue-400" href={`/post/${post.slug}`}>
+						{post.data.title}
+					</a>
+				</div>
+			))
+		}
+	</div>
+</MainLayout>

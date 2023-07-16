@@ -1,0 +1,33 @@
+---
+export const prerender = true
+import { dedupe } from "@alanscodelog/utils"
+import { getCollection } from "astro:content"
+
+import TagsLayout from "@/layouts/TagsLayout.astro"
+
+
+export async function getStaticPaths({ paginate }) {
+	const posts = (
+		await getCollection(
+			"blog",
+			(post) => post.data.published && post.data.tags !== undefined
+		)
+	)
+		.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+		.reverse()
+	const tags = dedupe(posts.map((post) => post.data.tags).flat())
+	const res = tags.map((tag) => ({
+		params: {
+			tag,
+		},
+	}))
+	return res
+}
+const { tag } = Astro.params
+const posts = await getCollection(
+	"blog",
+	(post) => post.data.published && post.data.tags?.includes(tag)
+);
+---
+
+<TagsLayout tag={tag} posts={posts} urlpat="/langs/" name="Languages" />

@@ -1,21 +1,18 @@
 ---
-export const prerender = true;
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import Test from '../components/Test.vue';
-import { SITE_DESCRIPTION,SITE_TITLE } from '../consts.js';
+export const prerender = true
+import { Page } from "astro"
+import { getCollection } from "astro:content"
+
+import PaginatedLayout from "@/layouts/PaginatedLayout.astro"
+
+import { POSTS_PER_PAGE } from "../consts.js"
+
+
+const collection = await getCollection("blog", (post) => post.data.published)
+const count = collection.length
+const posts = collection
+	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+	.reverse()
+	.slice(0, POSTS_PER_PAGE)
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<Test client:only/>
-
-		<Footer />
-	</body>
-</html>
+<PaginatedLayout page={{data:posts, url: {next: count > POSTS_PER_PAGE ? `/posts/${2}` :undefined}}} />

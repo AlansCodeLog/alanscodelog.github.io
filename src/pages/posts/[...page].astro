@@ -1,0 +1,24 @@
+---
+export const prerender = true
+import {Page} from "astro"
+import { getCollection } from "astro:content"
+
+import PaginatedLayout from "@/layouts/PaginatedLayout.astro"
+
+import { POSTS_PER_PAGE} from "../../consts.js"
+
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection("blog", (post) => post.data.published))
+  .sort(
+		(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	).reverse()
+
+  return paginate(posts, {
+    pageSize: POSTS_PER_PAGE,
+
+  })
+}
+const { page } = Astro.props;
+---
+<PaginatedLayout page={page} />
