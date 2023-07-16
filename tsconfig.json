@@ -1,9 +1,27 @@
 {
-  "extends": "@alanscodelog/tsconfigs",
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "nodenext",
-    "jsx": "preserve"
-  }
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": "@alanscodelog/tsconfigs",
+	// astro can't handle array, copied config directly
+	// "extends": ["@alanscodelog/tsconfigs", "astro/tsconfigs/base"],
+	// TypeScript 5.0 changed how `isolatedModules` and `importsNotUsedAsValues` works, deprecating the later
+	// Until the majority of users are on TypeScript 5.0, we'll have to supress those deprecation errors
+	"ignoreDeprecations": "5.0",
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"forceConsistentCasingInFileNames": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": [
+				"src/*"
+			],
+		},
+		"verbatimModuleSyntax": true,
+	}
 }
