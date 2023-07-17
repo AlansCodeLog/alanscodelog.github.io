@@ -10,6 +10,7 @@ import tailwind from "@astrojs/tailwind"
 import vue from "@astrojs/vue"
 import { defineConfig, sharpImageService } from "astro/config"
 import icon from "astro-icon"
+import robotsTxt from "astro-robots-txt"
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,6 +29,7 @@ export default defineConfig({
 				devicon: ["*"],
 			},
 		}),
+robotsTxt(),
 	],
 	image: {
 		service: sharpImageService(),

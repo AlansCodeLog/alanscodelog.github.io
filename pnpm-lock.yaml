@@ -29,6 +29,7 @@ specifiers:
   '@typescript-eslint/parser': ^6.0.0
   astro: ^2.8.3
   astro-icon: 1.0.0-next.2
+  astro-robots-txt: ^0.5.0
   dotenv: ^16.3.1
   eslint: ^8.45.0
   eslint-import-resolver-typescript: ^3.5.5
@@ -77,6 +78,7 @@ devDependencies:
   '@typescript-eslint/parser': 6.0.0_ko3fmmbeyij36muomfgt2u76xu
   astro: 2.8.3_sharp@0.32.3
   astro-icon: 1.0.0-next.2
+  astro-robots-txt: 0.5.0
   dotenv: 16.3.1
   eslint: 8.45.0
   eslint-import-resolver-typescript: 3.5.5_qkajw6fff6twdqh7l2yg4vsy6e
@@ -2098,6 +2100,13 @@ packages:
       - supports-color
     dev: true
 
+  /astro-robots-txt/0.5.0:
+    resolution: {integrity: sha512-MJDcxBDjEKSp7Uvw32cnmkPHlmjQ/pW5JwzMhKEegFRoGaiSh2i1kkh1QEhk1UpGnAsSondWCoIt2xpG8qjSgA==}
+    dependencies:
+      valid-filename: 4.0.0
+      zod: 3.21.4
+    dev: true
+
   /astro/2.8.3_sharp@0.32.3:
     resolution: {integrity: sha512-UopGl3WubMnl15TWlR6PTCcH54TooZ+JoAloErfoXQtz4PAvmEEqEVc7tHoJ45iC7rhKgzILsvDhqzitBeRihw==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
@@ -3583,6 +3592,11 @@ packages:
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       flat-cache: 3.0.4
+    dev: true
+
+  /filename-reserved-regex/3.0.0:
+    resolution: {integrity: sha512-hn4cQfU6GOT/7cFHXBqeBg2TbrMBgdD0kcjLhvSQYYwm3s4B6cjvBfb7nBALJLAXqmU5xajSa7X2NnUud/VCdw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
   /fill-range/7.0.1:
@@ -7025,6 +7039,13 @@ packages:
       diff: 5.1.0
       kleur: 4.1.5
       sade: 1.8.1
+    dev: true
+
+  /valid-filename/4.0.0:
+    resolution: {integrity: sha512-VEYTpTVPMgO799f2wI7zWf0x2C54bPX6NAfbZ2Z8kZn76p+3rEYCTYVYzMUcVSMvakxMQTriBf24s3+WeXJtEg==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      filename-reserved-regex: 3.0.0
     dev: true
 
   /validator/13.9.0:
