@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 env:
   SITE_URL: ${{ vars.SITE_URL }}
