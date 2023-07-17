@@ -1,26 +1,35 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css'
+import "../styles/global.css"
 // import '@fontsource-variable/oxanium';
 // import '@fontsource-variable/grenze-gotisch';
 // import '@fontsource/cinzel-decorative';
-import '@fontsource/share-tech-mono'
-import '@fontsource/megrim'
-// monospace font is set through cdn below since hack is not available through google fonts
+import "@fontsource/share-tech-mono"
+import "@fontsource/megrim"
 
+import { AUTHOR,  GOOGLE_SITE_VERIFICATION, KEYWORDS, SITE_DESCRIPTION,SITE_TITLE } from "@/consts"
+// monospace font is set through cdn below since hack is not available through google fonts
 
 export interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	keywords?: string[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
+const { title =SITE_TITLE, description = SITE_DESCRIPTION, image = "/favicon.svg", keywords =[] } = Astro.props
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack-subset.css" integrity="sha512-/qDvulLjBL2EaRMJOIXQhkiKwhlkDdT2qY000siiuS02OOxbL8BrBOW1aJBjPkC/QJzc8VbnIe4zzGsISNnTHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack-subset.css"
+	integrity="sha512-/qDvulLjBL2EaRMJOIXQhkiKwhlkDdT2qY000siiuS02OOxbL8BrBOW1aJBjPkC/QJzc8VbnIe4zzGsISNnTHg=="
+	crossorigin="anonymous"
+	referrerpolicy="no-referrer"
+/>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -35,6 +44,9 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={AUTHOR} />
+<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+<meta name="keywords" content={[...KEYWORDS, ...keywords].join(",")} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

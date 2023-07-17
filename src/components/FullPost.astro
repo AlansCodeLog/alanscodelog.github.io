@@ -16,7 +16,7 @@ const sharedThumbClasses = `
 	block
 	flex-initial
 	w-auto
-	object-cover
+	object-contain
 	max-h-[400px]
 	bg-slate-900
 	shadow-md
@@ -57,9 +57,9 @@ const sharedThumbClasses = `
 		post.data.cover && (
 			<Image
 				class={sharedThumbClasses}
-				width={800}
 				src={post.data.cover}
 				alt={post.data.coverAlt ?? ""}
+				quality={80}
 				format={"png"}
 			/>
 		)

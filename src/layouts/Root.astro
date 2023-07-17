@@ -1,7 +1,11 @@
 ---
 export const prerender = true
-import BaseHead from "../components/BaseHead.astro"
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import Head, { type Props as HeaderProps } from "../components/Head.astro"
+
+
+export interface Props extends Partial<HeaderProps> {}
+
+const props = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -16,8 +20,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 	`}
 >
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<meta charset="utf-8" />
+		<Head {...props as HeaderProps} />
 	</head>
 	<slot />
 </html>

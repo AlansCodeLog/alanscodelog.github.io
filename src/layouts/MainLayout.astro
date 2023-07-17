@@ -2,12 +2,17 @@
 export const prerender = true
 import Root from "./Root.astro"
 
-import BaseHead from "../components/BaseHead.astro"
+import Head, { type Props as HeaderProps } from "../components/Head.astro"
+
+
+export interface Props extends Partial<HeaderProps> {}
+
+const props=Astro.props
 import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
 ---
 
-<Root>
+<Root {...props}>
 	<body
 		class={`
 		flex

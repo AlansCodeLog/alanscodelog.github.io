@@ -1,5 +1,5 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content"
+import { type CollectionEntry, getCollection } from "astro:content"
 
 import FullPost from "@/components/FullPost.astro"
 import MainLayout from "@/layouts/MainLayout.astro"
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 	return posts
 		.filter(
 			(post: CollectionEntry<"blog">) =>
-				process.env === "development" || post.data.published === true
+				import.meta.env.MODE === "development" || post.data.published === true
 		)
 		.map((post) => ({
 			params: { slug: post.slug },
@@ -22,8 +22,13 @@ type Props = CollectionEntry<"blog">;
 const post = Astro.props
 const { Content } = await post.render();
 ---
+<MainLayout
+	title={post.data.title}
+	description={post.data.description}
+	image={post.data.cover?.src || post.data.svgCover?.src}
+	keywords={[...( post.data.tags ?? [] ), ...(post.data.langs ??[])]}
+>
 
-<MainLayout>
 	<FullPost post={post}>
 		<Content />
 	</FullPost>

@@ -125,11 +125,12 @@ const { post } = Astro.props;
 					sm:w-auto
 					order-1
 					sm:order-2
+					flex justify-center
 				`}
 				>
 					{post.data.svgCover && (
 						<object
-							class={`object-cover h-full`}
+							class={`object-contain h-full`}
 							data={post.data.svgCover}
 							width="300"
 							height="300"
@@ -137,7 +138,7 @@ const { post } = Astro.props;
 					)}
 					{post.data.cover && (
 						<Image
-							class={` object-cover h-full `}
+							class={` object-contain h-full `}
 							src={post.data.cover}
 							alt={post.data.coverAlt}
 						/>
