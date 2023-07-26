@@ -8,7 +8,7 @@ import "../styles/global.css"
 import "@fontsource/share-tech-mono"
 import "@fontsource/megrim"
 
-import { AUTHOR,  GOOGLE_SITE_VERIFICATION, KEYWORDS, SITE_DESCRIPTION,SITE_TITLE } from "@/consts"
+import { AUTHOR, GOOGLE_SITE_VERIFICATION, HEADER_LINKS, KEYWORDS, SITE_DESCRIPTION,SITE_TITLE } from "@/consts"
 // monospace font is set through cdn below since hack is not available through google fonts
 
 export interface Props {
@@ -21,6 +21,8 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const { title =SITE_TITLE, description = SITE_DESCRIPTION, image = "/favicon.svg", keywords =[] } = Astro.props
+const twitter = HEADER_LINKS.filter(link => link.title.toLowerCase() === "twitter" ||link.href.includes("twitter.com"))[0]
+
 ---
 
 <link
@@ -62,3 +64,4 @@ const { title =SITE_TITLE, description = SITE_DESCRIPTION, image = "/favicon.svg
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<link rel="me" href={twitter.href}>
