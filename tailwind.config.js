@@ -22,7 +22,7 @@ export default {
 		},
 		extend: {
 			fontSize: {
-				xs: "0.75rem",
+				// xs: ["0.75rem", "0.75rem"],
 			},
 			screens: {
 				"not-print": { raw: "not print" },
