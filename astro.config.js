@@ -27,9 +27,10 @@ export default defineConfig({
 		icon({
 			include: {
 				devicon: ["*"],
+				"fa6-solid": ["*"],
 			},
 		}),
-robotsTxt(),
+		robotsTxt(),
 	],
 	image: {
 		service: sharpImageService(),
@@ -45,7 +46,4 @@ robotsTxt(),
 	// adapter: node({
 	// 	mode: "standalone"
 	// }),
-	experimental: {
-		assets: true,
-	},
 })

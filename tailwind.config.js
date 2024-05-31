@@ -37,7 +37,7 @@ export default {
 				const spacing = theme("spacing")
 				return {
 					...Object.fromEntries(Object.keys(spacing).map(key =>
-					[`fill-${key}`, `repeat(auto-fill, minmax(${spacing[key]}, 1fr))`],
+						[`fill-${key}`, `repeat(auto-fill, minmax(${spacing[key]}, 1fr))`],
 					)),
 					...Object.fromEntries(Object.keys(spacing).map(key =>
 						[`fit-${key}`, `repeat(auto-fit, minmax(${spacing[key]}, 1fr))`],
