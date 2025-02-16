@@ -13,10 +13,10 @@
 		"lint:eslint": "eslint \"src/**/*.{astro,cjs,js,ts}\" \"*.{astro,cjs,js,ts}\" --max-warnings=0 --report-unused-disable-directives"
 	},
 	"devDependencies": {
-		"@alanscodelog/eslint-config": "5.0.0-beta.3",
-		"@alanscodelog/tsconfigs": "^4.0.1",
-		"@alanscodelog/utils": "^4.0.0",
-		"@alanscodelog/vue-components": "2.0.0-beta.6",
+		"@alanscodelog/eslint-config": "5.0.3",
+		"@alanscodelog/tsconfigs": "^5.0.1",
+		"@alanscodelog/utils": "^4.1.2",
+		"@alanscodelog/vue-components": "2.5.0",
 		"@astro-community/astro-embed-youtube": "^0.5.2",
 		"@astrojs/mdx": "^3.0.1",
 		"@astrojs/node": "^8.2.5",
@@ -39,7 +39,7 @@
 		"@iconify/json": "^2.2.215",
 		"@kurone-kito/jsonresume-types": "^0.4.0",
 		"astro": "^4.9.2",
-		"astro-icon": "1.1.0",
+		"astro-icon": "1.1.5",
 		"astro-robots-txt": "^1.0.0",
 		"dotenv": "^16.4.5",
 		"eslint-plugin-astro": "^1.2.0",
