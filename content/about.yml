@@ -1,0 +1,11 @@
+title: About Me
+description: I like programming, designing, and building things.
+content: |
+  I love the process of shaping complex ideas into reality. Be that coding, designing some 3D part, or finishing a painting. Something that seems simple can be incredibly complex, and taming that complexity is an art form.
+images:
+  - src: /images/about/my-artwork.jpg
+    alt: Some of my Artwork
+  - src: /images/about/my-artwork2.jpg
+    alt: Some more Art
+  - src: /images/about/my-baby-the-kraken.jpg
+    alt: My baby, the Kraken

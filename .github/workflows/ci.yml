@@ -1,0 +1,46 @@
+name: ci
+
+on: push
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [22]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm generate 
+        
+      - name: Publish 
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          jekyll: false
+          target_branch: gh-pages
+          build_dir: .output/public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

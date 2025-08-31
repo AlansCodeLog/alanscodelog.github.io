@@ -1,0 +1,51 @@
+{
+	"na :set noexpandtabme": "nuxt-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev --port 3001",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"typecheck": "nuxt typecheck"
+	},
+	"dependencies": {
+		"@iconify-json/lucide": "^1.2.68",
+		"@iconify-json/simple-icons": "^1.2.53",
+		"@nuxt/content": "^3.7.1",
+		"@nuxt/image": "^1.10.0",
+		"@nuxt/scripts": "0.12.1",
+		"@nuxt/ui": "4.0.0",
+		"@unhead/vue": "^2.0.17",
+		"@vueuse/nuxt": "^13.9.0",
+		"better-sqlite3": "^12.4.1",
+		"motion-v": "^1.5.0",
+		"nuxt": "^4.1.2",
+		"nuxt-og-image": "^5.1.11"
+	},
+	"devDependencies": {
+		"@nuxt/eslint": "^1.5.2",
+		"@types/youtube": "^0.1.2",
+		"eslint": "^9.36.0",
+		"typescript": "^5.8.3",
+		"vue-tsc": "^3.0.8"
+	},
+	"resolutions": {
+		"unimport": "4.1.1"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"better-sqlite3",
+			"sharp"
+		],
+		"ignoredBuiltDependencies": [
+			"@parcel/watcher",
+			"esbuild",
+			"vue-demi"
+		]
+	},
+	"packageManager": "pnpm@10.13.1"
+}

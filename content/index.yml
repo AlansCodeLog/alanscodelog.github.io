@@ -1,0 +1,85 @@
+seo:
+  title: "Alan North\nFull Stack Developer"
+  description: "I bring ambitious ideas to life, crafting complex user interfaces into intuitive experiences."
+title: "Alan North"
+description: "Full Stack Developer"
+hero:
+  images:
+    - src: /home/featured-pyramid-notes.png
+      alt: Pyramid Notes
+      url: https://pyramidnotes.com
+      description: Pyramid Notes is an offline-first, multi-platform, extensible note app.
+    - src: /home/featured-3d-print.png
+      alt: 3D Print Customizer
+      popupType: youtube
+      popup: EWGytuckT7o
+      description: App for a 3D printing company so they can easily customize their products with any image. Built with nuxt, three.js (for the 3D previews), and fabric.js (image manipulation). Lightning fast vector tracing done by a custom wasm wrapper around the rust vtracer library.
+    - src: /home/featured-shortcut-manager.png
+      alt: Drag n' Drop Shortcut Manager
+      description: Shortcut Manager library that makes it easy to manage all the shortcut needs of an application. It supports chained shortcuts, safe editing including batch edits of chains, exporting, importing, and multiple configs. Demo shows how to use it to implement a visual editor with drag n' drop editing. Built from scratch with vue.
+      url: https://witchcraftjs.github.io/spellcraft
+    - src: /home/featured-layout-lib.webp
+      alt: Layout Library
+      url: https://github.com/witchcraftjs/layout
+      popupType: video
+      popup: /home/featured-popup-layout-lib.mp4 
+      description: Layout library for handling complex customizable app layouts.
+    - src: /home/featured-prosemirror-editor.png
+      url: https://witchcraftjs.github.io/editor/demo
+      alt: Prosemirror Editor
+      description: Custom block WYSIWYG editor. Built using Tiptap and Prosemirror. Supports drag n' drop blocks, seamless editing of full and partial embedded documents, and file uploads.
+about:
+  title: "About Me"
+  description: |
+    I'm a full stack developer with a passion for crafting offline-first, accessible, and user-centered apps. I specialize in:
+  details:
+    - title: "Offline-First Collaborative Apps"
+      icon: "i-gridicons-offline"
+    - title: "WYSIWYG Editors (Prosemirror)"
+      description: "Unique editing experiences built from scratch."
+      icon: "i-hugeicons-note-edit"
+    - title: "Interactive Data Visualizations"
+      description: "Charts, graphs, and maps for data exploration."
+      icon: "i-hugeicons-chart-02"
+    - title: "3D Experiences (three.js)"
+      icon: "i-tdesign-map-3d"
+      description: "Custom WYSIWYG editors for unique requirements."
+experience:
+  title: Work Experience
+  items:
+    - position: "Full Stack Developer at"
+      date: "2024-Present"
+      company:
+        name: Pyramid Notes
+        url: https://pyramidnotes.com
+        logo: /home/pyramid-notes-logo.png
+        color: "yellow"
+    - position: "CAD/CAM Specialist at"
+      date: "2021-2025"
+      company:
+        name: Pluss Laboratorio
+        url: http://plusslaboratorio.com.ar/www/
+        color: "#13b1b2"
+    - position: "Full Stack Developer at"
+      date: "2017-2021"
+      company:
+        name: Techlab
+        color: "#00b0ff"
+    - position: "Freelance Graphic Designer / 3D Artist"
+      date: "2015-2017"
+      company:
+        # name: Freelance
+hobbies:
+  title: "Hobbies"
+  items:
+    - title: "Painting/Drawing"
+      icon: "i-material-symbols-palette-outline"
+      description: "I keep a small art blog."
+      url: "https://alansartlog.com"
+    - title: "3D Printing"
+      icon: "i-mdi-printer-3d-nozzle-outline"
+      description: "I've designed and built a 3D printer from scratch and enjoy designing complex parts and figuerines."
+      color: "yellow"
+blog:
+  title: "Latest Blog Posts"
+  description:
