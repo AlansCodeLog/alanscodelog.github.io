@@ -53,7 +53,68 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-	<UMain class="mt-20 px-2">
+	<UMain
+		class="mt-20 px-2"
+		:style="{ '--toc-sticky-width': '1300px' }"
+	>
+		<UContentToc
+			title="Table of Contents"
+			:ui="{
+				root: `
+					fixed
+					bottom-20
+					top-45
+					left-[unset]!
+					right-0
+					h-[unset]!
+					w-[calc((100cqw-var(--ui-container))/2-10px)]
+					overflow-y-auto
+					backdrop-filter-none
+					@max-6xl/main:hidden!
+					px-4!
+					mx-[unset]!
+				`,
+			}"
+			:links="page?.body?.toc?.links"
+		/>
+		<USlideover
+			:ui="{
+			}"
+		>
+			<div
+				class="
+				sticky
+				z-10
+				top-10
+				right-0
+				bottom-[unset]
+				@min-6xl/main:hidden
+				flex items-center justify-end
+			"
+			>
+				<div class="p-3">
+					<UButton
+						label="TOC"
+						color="neutral"
+						variant="subtle"
+					/>
+				</div>
+			</div>
+
+			<template #content>
+				<UContentToc
+					title="Table of Contents"
+					:expanded="true"
+					:ui="{
+						root: `
+							mx-[unset]!
+							px-4!
+						`,
+					}"
+					:links="page?.body?.toc?.links"
+				/>
+			</template>
+		</USlideover>
 		<UContainer class="relative min-h-screen">
 			<UPage v-if="page">
 				<ULink

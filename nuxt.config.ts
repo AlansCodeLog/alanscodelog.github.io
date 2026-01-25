@@ -28,6 +28,13 @@ export default defineNuxtConfig({
 			crawlLinks: true,
 		},
 	},
+	hooks: {
+		"components:extend": (components) => {
+			const globals = components.filter(c => c.pascalName.startsWith("md"))
+
+			globals.forEach(c => c.global = true)
+		},
+	},
 
 	eslint: {
 		config: {
