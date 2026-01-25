@@ -13,30 +13,34 @@
 		"typecheck": "nuxt typecheck"
 	},
 	"dependencies": {
-		"@iconify-json/lucide": "^1.2.68",
-		"@iconify-json/simple-icons": "^1.2.53",
-		"@nuxt/content": "^3.7.1",
-		"@nuxt/image": "^1.10.0",
-		"@nuxt/scripts": "0.12.1",
-		"@nuxt/ui": "4.0.0",
-		"@unhead/vue": "^2.0.17",
-		"@vueuse/nuxt": "^13.9.0",
-		"better-sqlite3": "^12.4.1",
-		"motion-v": "^1.5.0",
-		"nuxt": "^4.1.2",
-		"nuxt-og-image": "^5.1.11"
+		"@iconify-json/lucide": "^1.2.86",
+		"@iconify-json/simple-icons": "^1.2.67",
+		"@nuxt/content": "^3.11.0",
+		"@nuxt/image": "^2.0.0",
+		"@nuxt/scripts": "0.13.2",
+		"@nuxt/ui": "4.4.0",
+		"@unhead/vue": "^2.1.2",
+		"@vueuse/nuxt": "^14.1.0",
+		"better-sqlite3": "^12.6.2",
+		"motion-v": "^1.10.1",
+		"nuxt": "^4.3.0",
+		"nuxt-og-image": "^5.1.13",
+		"nuxt-studio": "1.2.0"
 	},
 	"devDependencies": {
-		"@nuxt/eslint": "^1.5.2",
+		"@nuxt/eslint": "^1.13.0",
 		"@types/youtube": "^0.1.2",
-		"eslint": "^9.36.0",
-		"typescript": "^5.8.3",
-		"vue-tsc": "^3.0.8"
+		"eslint": "^9.39.2",
+		"typescript": "^5.9.3",
+		"vue-tsc": "^3.2.3"
 	},
 	"resolutions": {
 		"unimport": "4.1.1"
 	},
 	"pnpm": {
+		"overrides": {
+			"@vitejs/plugin-vue":"^6.0.2"
+		},
 		"onlyBuiltDependencies": [
 			"better-sqlite3",
 			"sharp"

@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 		"nuxt-og-image",
 		"motion-v/nuxt",
 		"@nuxt/scripts",
+		"nuxt-studio",
 	],
 
 	devtools: {
