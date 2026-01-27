@@ -96,6 +96,7 @@ export default defineContentConfig({
 			schema: z.object({
 				date: z.date(),
 				image: z.string().nonempty().editor({ input: "media" }),
+				video_image: z.string().nonempty().editor({ input: "media" }).optional(),
 				published: z.boolean().optional(),
 				tags: z.array(z.string()).optional(),
 				langs: z.array(z.string()).optional(),

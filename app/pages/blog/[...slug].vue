@@ -50,6 +50,23 @@ const formatDate = (dateString: string) => {
 		day: "numeric",
 	})
 }
+
+function copyTitleToClipboard() {
+	if (!page.value?.title) return
+	navigator.clipboard.writeText(page.value?.title)
+}
+function copyTagsToClipboard() {
+	if (!page.value?.tags || !page.value?.langs) return
+	navigator.clipboard.writeText([...page.value.tags, ...page.value.langs].join(", "))
+}
+function copyMarkdownToClipboard() {
+	const markdown = page.value?.rawbody
+		.replace(/---[\s\S]*?---/g, "")
+		.replaceAll(/::md-.*([\s\S]*?)::\n/g, "$1")
+		.replaceAll(/:(video\{.*?\})/g, "#TODO $1")
+	if (!markdown) return
+	navigator.clipboard.writeText(markdown)
+}
 </script>
 
 <template>
@@ -130,12 +147,22 @@ const formatDate = (dateString: string) => {
 							{{ formatDate(page.date) }}
 						</span>
 					</div>
+					<video
+						v-if="page.video_image"
+						:src="page.video_image"
+						muted
+						autoplay
+						loop
+						class="rounded-lg w-full h-[300px] object-contain object-center"
+					/>
 					<NuxtImg
-						v-if="page.image"
+						v-else-if="page.image"
+						:modifiers="{ animated: page.image.endsWith('.gif') ? 'true': undefined }"
 						:src="page.image"
 						:alt="page.title"
 						class="rounded-lg w-full h-[300px] object-contain object-center"
 					/>
+
 					<h1 class="text-4xl text-center font-medium max-w-3xl mx-auto mt-4">
 						{{ page.title }}
 					</h1>
