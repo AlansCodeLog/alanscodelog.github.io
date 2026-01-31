@@ -100,6 +100,7 @@ export default defineContentConfig({
 				published: z.boolean().optional(),
 				tags: z.array(z.string()).optional(),
 				langs: z.array(z.string()).optional(),
+				rawbody: z.string(),
 			}),
 		}),
 		pages: defineCollection({

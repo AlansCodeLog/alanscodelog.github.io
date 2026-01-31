@@ -171,6 +171,19 @@ function copyMarkdownToClipboard() {
 					</p>
 				</div>
 				<UPageBody class="max-w-3xl mx-auto">
+					<DevOnly>
+						<div class="flex items-center justify-end gap-2 text-sm">
+							<UButton @click="copyTitleToClipboard">
+								Copy Title
+							</UButton>
+							<UButton @click="copyTagsToClipboard">
+								Copy Tags
+							</UButton>
+							<UButton @click="copyMarkdownToClipboard">
+								Copy Markdown
+							</UButton>
+						</div>
+					</DevOnly>
 					<ContentRenderer
 						v-if="page.body"
 						:value="page"
