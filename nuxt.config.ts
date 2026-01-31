@@ -1,3 +1,6 @@
+import path from "path"
+import { run } from "@alanscodelog/utils/node"
+import { existsSync, readdirSync } from "fs"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	modules: [

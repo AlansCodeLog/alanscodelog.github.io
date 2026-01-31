@@ -13,6 +13,7 @@
 		"typecheck": "nuxt typecheck"
 	},
 	"dependencies": {
+		"@alanscodelog/utils": "^6.0.2",
 		"@iconify-json/lucide": "^1.2.86",
 		"@iconify-json/simple-icons": "^1.2.67",
 		"@nuxt/content": "^3.11.0",
@@ -39,7 +40,7 @@
 	},
 	"pnpm": {
 		"overrides": {
-			"@vitejs/plugin-vue":"^6.0.2"
+			"@vitejs/plugin-vue": "^6.0.2"
 		},
 		"onlyBuiltDependencies": [
 			"better-sqlite3",
