@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import type { NuxtError } from "#app"
 
-const props = defineProps({
+/* const props =  */defineProps({
 	error: {
 		type: Object as PropType<NuxtError>,
 		required: true,
 	},
 })
-console.log(props.error.stack)
 
 useHead({
 	htmlAttrs: {
