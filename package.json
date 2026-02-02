@@ -14,26 +14,30 @@
 	},
 	"dependencies": {
 		"@alanscodelog/utils": "^6.0.2",
-		"@iconify-json/lucide": "^1.2.86",
-		"@iconify-json/simple-icons": "^1.2.67",
+		"@iconify-json/lucide": "^1.2.87",
+		"@iconify-json/simple-icons": "^1.2.69",
 		"@nuxt/content": "^3.11.0",
 		"@nuxt/image": "^2.0.0",
 		"@nuxt/scripts": "0.13.2",
 		"@nuxt/ui": "4.4.0",
+		"@nuxtjs/seo": "3.4.0",
+		"@resvg/resvg-js": "^2.6.2",
 		"@unhead/vue": "^2.1.2",
-		"@vueuse/nuxt": "^14.1.0",
+		"@vueuse/nuxt": "^14.2.0",
 		"better-sqlite3": "^12.6.2",
-		"motion-v": "^1.10.1",
+		"motion-v": "^1.10.2",
 		"nuxt": "^4.3.0",
-		"nuxt-og-image": "^5.1.13",
-		"nuxt-studio": "1.2.0"
+		"nuxt-studio": "1.2.0",
+		"satori": "^0.19.1"
 	},
 	"devDependencies": {
 		"@nuxt/eslint": "^1.13.0",
+		"@nuxt/fonts": "^0.13.0",
 		"@types/youtube": "^0.1.2",
 		"eslint": "^9.39.2",
+		"nuxt-og-image": "^5.0.0",
 		"typescript": "^5.9.3",
-		"vue-tsc": "^3.2.3"
+		"vue-tsc": "^3.2.4"
 	},
 	"resolutions": {
 		"unimport": "4.1.1"

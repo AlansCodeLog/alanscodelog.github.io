@@ -3,7 +3,7 @@ title: "Krita Popup Palette Improvements"
 description: "From zero C++ to getting a PR merged into Krita."
 date: "2021-08-01"
 published: true
-image: "thumbs/krita-demon-summoning.png"
+image: "/thumbs/krita-demon-summoning.png"
 coverAlt: "Debug lines drawn on top of the krita palette."
 tags: ["krita", "graphics"]
 langs: ["c++"]

@@ -12,7 +12,9 @@ export default defineNuxtConfig({
 		"nuxt-og-image",
 		"motion-v/nuxt",
 		"@nuxt/scripts",
+		"@nuxt/fonts",
 		"nuxt-studio",
+		"@nuxtjs/seo",
 	],
 
 	devtools: {
@@ -20,7 +22,10 @@ export default defineNuxtConfig({
 	},
 
 	css: ["~/assets/css/main.css"],
-
+	site: {
+		url: "https://alanscodelog.github.io",
+		name: "Alan's Code Log",
+	},
 	compatibilityDate: "2024-11-01",
 
 	nitro: {
@@ -40,7 +45,6 @@ export default defineNuxtConfig({
 		"build:before": async () => {
 			const dirPath = path.join(process.cwd(), "public", "posts")
 			const thumbDirPath = path.join(process.cwd(), "public", "thumbs")
-			console.log(dirPath, thumbDirPath)
 
 			if (!existsSync(dirPath)) {
 				throw new Error("Posts directory not found")
@@ -76,8 +80,7 @@ export default defineNuxtConfig({
 					if (!result) throw new Error(`ffprobe failed for ${file}`)
 					const dur = parseFloat(result)
 					if (dur > 30) console.warn(`⚠️  ${file} is ${dur.toFixed(1)}s. Cap of 500 frames will apply.`)
-				}
-				catch {
+				} catch {
 					console.warn(`⚠️  ffprobe failed for ${file}`)
 				}
 
@@ -111,14 +114,12 @@ export default defineNuxtConfig({
 						],
 					).promise.catch(_ => undefined)
 					console.log(`Finished: ${file}`)
-				}
-				catch (e) {
+				} catch (e) {
 					console.error(`Error with ${file}:`, e)
 				}
 			}
 		},
 	},
-
 	eslint: {
 		config: {
 			stylistic: {
@@ -126,7 +127,29 @@ export default defineNuxtConfig({
 				quotes: "double",
 				semi: false,
 				jsx: true,
+				braceStyle: "1tbs",
 			},
 		},
+	},
+
+	fonts: {
+		provider: "google",
+		families: [
+			{ name: "Roboto", weights: [400, 700], global: true, provider: "google" },
+		],
+	},
+
+	linkChecker: {
+		skipInspections: ["no-underscores"],
+		excludeLinks: [
+			// unpublished blog posts
+			"/blog/_**",
+		],
+	},
+	ogImage: {
+		fonts: [
+			"Roboto:400",
+			"Roboto:700",
+		],
 	},
 })
