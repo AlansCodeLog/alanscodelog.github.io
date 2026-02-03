@@ -1,0 +1,23 @@
+# START nuxt-robots (indexable)
+User-agent: *
+Disallow: 
+Content-Usage: bots=y, train-ai=n
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+Sitemap: https://alanscodelog.github.io/sitemap.xml
+# END nuxt-robots

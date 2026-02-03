@@ -1,0 +1,1 @@
+import{_ as s}from"./DlAUqK2U.js";import{o as e,c as o,r as c}from"./BKh8bA8C.js";const a={},t={class:"md-emphasis-block block bg-primary-500/20 border-x-[calc(var(--spacing)*2)] border-primary-500/30 p-4 -mx-6"};function n(r,m){return e(),o("div",t,[c(r.$slots,"default")])}const d=Object.assign(s(a,[["render",n]]),{__name:"MdEmphasisBlock"});export{d as default};
