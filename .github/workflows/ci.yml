@@ -34,7 +34,7 @@ jobs:
         run: pnpm typecheck
 
       - name: Build
-        run: pnpm generate 
+        run: pnpm nuxt build --preset github_pages
         
       - name: Publish 
         uses: crazy-max/ghaction-github-pages@v4

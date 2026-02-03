@@ -20,11 +20,18 @@ export default defineNuxtConfig({
 	devtools: {
 		enabled: true,
 	},
-
 	css: ["~/assets/css/main.css"],
 	site: {
 		url: "https://alanscodelog.github.io",
 		name: "Alan's Code Log",
+		trailingSlash: true,
+	},
+	experimental: {
+		defaults: {
+			nuxtLink: {
+				trailingSlash: "append", // 'append' or 'remove'
+			},
+		},
 	},
 	compatibilityDate: "2024-11-01",
 
